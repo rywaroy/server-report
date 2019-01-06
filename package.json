@@ -1,0 +1,27 @@
+{
+  "name": "server-report",
+  "version": "1.0.0",
+  "description": "前端监控 服务端",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "egg-bin dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rywaroy/server-report.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rywaroy/server-report/issues"
+  },
+  "homepage": "https://github.com/rywaroy/server-report#readme",
+  "dependencies": {
+    "egg": "^2.14.2"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.10.0"
+  }
+}

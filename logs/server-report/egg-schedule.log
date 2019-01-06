@@ -1,0 +1,4 @@
+2019-01-06 22:46:24,603 INFO 31798 [Timer] /Users/zhangzhihao/GitHub/server-report/node_modules/.3.0.5@egg-logrotator/app/schedule/clean_log.js next time will execute after 4415400ms at 2019-01-07 00:00:00.003
+2019-01-06 22:46:24,603 INFO 31798 [Timer] /Users/zhangzhihao/GitHub/server-report/node_modules/.3.0.5@egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 4416397ms at 2019-01-07 00:00:01.000
+2019-01-06 22:46:24,442 INFO 31799 [egg-schedule]: register schedule /Users/zhangzhihao/GitHub/server-report/node_modules/.3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-01-06 22:46:24,442 INFO 31799 [egg-schedule]: register schedule /Users/zhangzhihao/GitHub/server-report/node_modules/.3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
