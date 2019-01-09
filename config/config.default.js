@@ -1,4 +1,4 @@
-exports.keys = 'zhang';
+exports.keys = 'csrfToken';
 
 exports.sequelize = {
   dialect: 'mysql',
@@ -7,4 +7,10 @@ exports.sequelize = {
   database: 'fe-monitor',
   username: 'root',
   password: 'together4',
+};
+
+exports.security = {
+  csrf: {
+    enable: false,
+  },
 };
