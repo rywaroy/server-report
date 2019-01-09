@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/rywaroy/server-report#readme",
   "dependencies": {
-    "egg": "^2.14.2"
+    "egg": "^2.14.2",
+    "egg-sequelize": "^4.3.1",
+    "mysql2": "^1.6.4"
   },
   "devDependencies": {
     "egg-bin": "^4.10.0"
