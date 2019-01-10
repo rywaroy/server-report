@@ -10,6 +10,10 @@ module.exports = app => {
     col: INTEGER,
     created_at: DATE,
     updated_at: DATE,
+    state: {
+      type: INTEGER,
+      defaultValue: 1,
+    },
   });
 
   return Errors;
