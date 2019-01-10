@@ -20,6 +20,7 @@
   "homepage": "https://github.com/rywaroy/server-report#readme",
   "dependencies": {
     "egg": "^2.14.2",
+    "egg-cors": "^2.1.2",
     "egg-sequelize": "^4.3.1",
     "mysql2": "^1.6.4"
   },
