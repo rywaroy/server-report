@@ -44,6 +44,22 @@ class ErrorsController extends Controller {
       total: data.count
     };
   }
+
+  async fix() {
+    const ctx = this.ctx;
+    const { id } = ctx.params;
+    await ctx.model.Errors.update({
+      state: 0,
+    }, {
+      where: {
+        id,
+      }
+    })
+    ctx.status = 200;
+    ctx.body = {
+      msg: '操作成功'
+    };
+  }
 }
 
 module.exports = ErrorsController;
