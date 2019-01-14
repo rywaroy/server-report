@@ -3,5 +3,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.post('/errors', controller.errors.create);
   router.get('/errors', controller.errors.list);
-  router.get('/fix/:id', controller.errors.fix);
+  router.post('/fix/:id', controller.errors.fix);
+  router.get('/location', controller.errors.location);
 };

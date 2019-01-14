@@ -1,8 +1,13 @@
 const Controller = require('egg').Controller;
 const dayjs = require('dayjs');
+const fs = require('fs');
+const SourceMapConsumer = require('source-map').SourceMapConsumer
 
 class ErrorsController extends Controller {
 
+  /**
+   * 创建出错
+   */
   async create() {
     const ctx = this.ctx;
     const { project, msg, url, line, col } = ctx.request.body;
@@ -13,6 +18,7 @@ class ErrorsController extends Controller {
         col,
         msg,
         url,
+        state: 1,
       },
     })
     ctx.status = 200;
@@ -21,6 +27,9 @@ class ErrorsController extends Controller {
     };
   }
 
+  /**
+   * 获取错误列表
+   */
   async list() {
     const ctx = this.ctx;
     let { page, limit, project, date } = ctx.query;
@@ -45,6 +54,9 @@ class ErrorsController extends Controller {
     };
   }
 
+  /**
+   * 解决错误
+   */
   async fix() {
     const ctx = this.ctx;
     const { id } = ctx.params;
@@ -59,6 +71,22 @@ class ErrorsController extends Controller {
     ctx.body = {
       msg: '操作成功'
     };
+  }
+
+  /**
+   * 获取source-map 真实行列号
+   */
+  async location() {
+    const ctx = this.ctx;
+    const { project, line, col, url } = ctx.query;
+    const urlArr = url.split('/');
+    const fileName = urlArr[urlArr.length - 1];
+    const consumer = await new SourceMapConsumer(fs.readFileSync(`/Users/zhangzhihao/GitHub/web-report/dist/${fileName}.map`, 'utf8'));
+    ctx.status = 200;
+    ctx.body = consumer.originalPositionFor({
+      line: +line,
+      column: +col
+    });
   }
 }
 
