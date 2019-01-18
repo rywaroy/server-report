@@ -10,7 +10,7 @@ class ErrorsController extends Controller {
    */
   async create() {
     const ctx = this.ctx;
-    const { project, msg, url, line, col } = ctx.request.body;
+    const { project, msg, url, line, col, browser, version } = ctx.request.body;
     await ctx.model.Errors.findOrCreate({
       where: {
         project,
@@ -19,8 +19,10 @@ class ErrorsController extends Controller {
         msg,
         url,
         state: 1,
+        browser,
+        version,
       },
-    })
+    });
     ctx.status = 200;
     ctx.body = {
       msg: '添加成功'

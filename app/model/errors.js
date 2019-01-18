@@ -10,7 +10,8 @@ module.exports = app => {
     col: INTEGER,
     created_at: DATE,
     updated_at: DATE,
-    ua: STRING,
+    browser: STRING,
+    version: STRING,
     state: {
       type: INTEGER,
       defaultValue: 1,
