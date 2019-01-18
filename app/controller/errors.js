@@ -1,10 +1,9 @@
 const Controller = require('egg').Controller;
 const dayjs = require('dayjs');
 const fs = require('fs');
-const SourceMapConsumer = require('source-map').SourceMapConsumer
+const SourceMapConsumer = require('source-map').SourceMapConsumer;
 
 class ErrorsController extends Controller {
-
   /**
    * 创建出错
    */
@@ -25,7 +24,7 @@ class ErrorsController extends Controller {
     });
     ctx.status = 200;
     ctx.body = {
-      msg: '添加成功'
+      msg: '添加成功',
     };
   }
 
@@ -52,7 +51,7 @@ class ErrorsController extends Controller {
     ctx.status = 200;
     ctx.body = {
       list: data.rows,
-      total: data.count
+      total: data.count,
     };
   }
 
@@ -67,11 +66,11 @@ class ErrorsController extends Controller {
     }, {
       where: {
         id,
-      }
-    })
+      },
+    });
     ctx.status = 200;
     ctx.body = {
-      msg: '操作成功'
+      msg: '操作成功',
     };
   }
 
@@ -87,7 +86,7 @@ class ErrorsController extends Controller {
     ctx.status = 200;
     ctx.body = consumer.originalPositionFor({
       line: +line,
-      column: +col
+      column: +col,
     });
   }
 }
