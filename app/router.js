@@ -5,4 +5,6 @@ module.exports = app => {
   router.get('/errors', controller.errors.list);
   router.post('/fix/:id', controller.errors.fix);
   router.get('/location', controller.errors.location);
+
+  router.post('/performance', controller.performance.create);
 };
