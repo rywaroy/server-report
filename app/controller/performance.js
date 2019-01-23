@@ -1,4 +1,5 @@
 const Controller = require('egg').Controller;
+const dayjs = require('dayjs');
 
 
 class PerfirmanceController extends Controller {
@@ -36,6 +37,34 @@ class PerfirmanceController extends Controller {
     ctx.status = 200;
     ctx.body = {
       msg: '添加成功',
+    };
+  }
+
+  /**
+   * 获取列表
+   */
+
+  async list() {
+    const ctx = this.ctx;
+    let { page, limit, project, start, end } = ctx.query;
+    page = Number(page) || 1;
+    limit = Number(limit) || 10;
+    const createdAt = {};
+    if (start) createdAt.$gt = new Date(start);
+    if (end) createdAt.$gt = new Date(end);
+    const data = await ctx.model.Errors.findAndCount({
+      where: {
+        ...(project && { project }),
+        created_at: createdAt,
+      },
+      order: [['id', 'desc']],
+      limit,
+      offset: (page - 1) * limit,
+    });
+    ctx.status = 200;
+    ctx.body = {
+      list: data.rows,
+      total: data.count,
     };
   }
 }

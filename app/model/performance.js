@@ -1,7 +1,7 @@
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  const Performance = app.model.define('performance', {
+  const Performance = app.model.define('performances', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     project: STRING,
     lookupDomainTime: INTEGER,
