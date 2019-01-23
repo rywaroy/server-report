@@ -1,5 +1,4 @@
 const Controller = require('egg').Controller;
-const dayjs = require('dayjs');
 
 
 class PerfirmanceController extends Controller {
@@ -48,7 +47,7 @@ class PerfirmanceController extends Controller {
     let { project, start, end } = ctx.query;
     const createdAt = {};
     if (start) createdAt.$gt = new Date(start);
-    if (end) createdAt.$gt = new Date(end);
+    if (end) createdAt.$gl = new Date(end);
     const data = await ctx.model.Errors.findAndCount({
       where: {
         ...(project && { project }),
