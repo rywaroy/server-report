@@ -43,12 +43,9 @@ class PerfirmanceController extends Controller {
   /**
    * 获取列表
    */
-
   async list() {
     const ctx = this.ctx;
-    let { page, limit, project, start, end } = ctx.query;
-    page = Number(page) || 1;
-    limit = Number(limit) || 10;
+    let { project, start, end } = ctx.query;
     const createdAt = {};
     if (start) createdAt.$gt = new Date(start);
     if (end) createdAt.$gt = new Date(end);
@@ -58,8 +55,6 @@ class PerfirmanceController extends Controller {
         created_at: createdAt,
       },
       order: [['id', 'desc']],
-      limit,
-      offset: (page - 1) * limit,
     });
     ctx.status = 200;
     ctx.body = {
