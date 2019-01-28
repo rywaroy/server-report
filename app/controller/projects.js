@@ -30,6 +30,25 @@ class ProjectsController extends Controller {
     ctx.status = 200;
     ctx.body = data;
   }
+
+  /**
+   * 删除项目
+   */
+  async del() {
+    const ctx = this.ctx;
+    const id = ctx.params.id;
+    await ctx.model.Projects.update({
+      state: 0,
+    }, {
+      where: {
+        id,
+      },
+    });
+    ctx.status = 200;
+    ctx.body = {
+      msg: '操作成功',
+    };
+  }
 }
 
 module.exports = ProjectsController;
