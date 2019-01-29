@@ -5,5 +5,6 @@ module.exports = {
         'prefer-destructuring': 0,
         'prefer-const': 0,
         'object-curly-newline': 0,
+        'no-mixed-operators': 0,
     }
 };
