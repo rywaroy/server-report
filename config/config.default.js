@@ -16,6 +16,10 @@ exports.security = {
 };
 
 exports.cors = {
-  origin:'*',
-  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  origin: '*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+};
+
+exports.jwt = {
+  secret: 'yg_server_report',
 };
