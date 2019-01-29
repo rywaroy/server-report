@@ -19,7 +19,7 @@ class UsersController extends Controller {
         ctx.status = 200;
         const token = this.app.jwt.sign({
           username,
-          exp: Date.now() / 1000 + 60 * 120,
+          exp: Date.now() / 1000 + 60 * 60 * 24 * 7,
         }, this.app.config.jwt.secret);
         ctx.body = {
           msg: '登录成功',
